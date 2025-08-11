@@ -1,13 +1,23 @@
 <template>
-<header><h1>My Friends</h1></header>
-<ul>
-    <friend-contact></friend-contact>
-    <friend-contact></friend-contact>
-</ul>
+  <header><h1>My Friends</h1></header>
+  <ul>
+    <friend-contact
+      name="Manuel Lorenz"
+      phone-number="543 7547 5"
+      email="manuel@local.com"
+      is-favorite="1"
+      ></friend-contact>
+      <friend-contact
+      name="Julie Jones"
+      phone-number="543 54 765  5"
+      email="julie@local.com"
+      is-favorite="0"
+    ></friend-contact>
+  </ul>
 </template>
 
 <script>
-import FriendContact from './components/FriendContact.vue';
+import FriendContact from "./components/FriendContact.vue";
 export default {
   components: { FriendContact },
   data() {
@@ -32,13 +42,13 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 body {
@@ -96,5 +106,4 @@ header {
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
-
 </style>
