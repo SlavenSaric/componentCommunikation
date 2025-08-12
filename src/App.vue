@@ -2,15 +2,14 @@
   <header><h1>My Friends</h1></header>
   <ul>
     <friend-contact
-      name="Manuel Lorenz"
-      phone-number="543 7547 5"
-      email="manuel@local.com"
-      is-favorite="1"
-      ></friend-contact>
-      <friend-contact
-      name="Julie Jones"
-      phone-number="543 54 765  5"
-      email="julie@local.com"
+      v-for="friend in friends"
+      :key="friend.id"
+      :id="friend.id"
+      :name="friend.name"
+      :phone-number="friend.phone"
+      :email="friend.email"
+      :is-favorite="friend.isFavorite"
+      @toggle-favorite="toggleFavoriteStatus"
     ></friend-contact>
   </ul>
 </template>
@@ -27,16 +26,24 @@ export default {
           name: "Manuel Lorenz",
           phone: "432 34643 646",
           email: "manuel@local.com",
+          isFavorite: true
         },
         {
           id: "julie",
           name: "Julie Lorenz",
           phone: "432 34643 646",
           email: "julie@local.com",
+          isFavorite: false
         },
       ],
     };
   },
+  methods: {
+    toggleFavoriteStatus(friendId){
+      const indentifiedFriend = this.friends.find(friend => friend.id === friendId)
+      indentifiedFriend.isFavorite = !indentifiedFriend.isFavorite
+    }
+  }
 };
 </script>
 
